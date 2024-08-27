@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta charset="UTF-8">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="UTF-8">
   <title>Antique Store By Benjamin</title>
   <link rel="stylesheet" href="cart.css">
   <link rel="stylesheet" href="Signup.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+    rel="stylesheet">
 
   <div class="header">
-  <div class="container">
-  <div class="navbar">
-    <div class="logo">
-      <img src="images/b.jpg" width="120px">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/b.jpg" width="120px">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a>
+            <li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a>
+            <li>
+            <li><a href="login.html">Login</a>
+            <li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a><li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a><li>
-        <li><a href="login.html">Login</a><li>
-        <li><a href="cart.html">Cart</a></li>
-        </ul>
-      </nav>
   </div>
-   </div>
-</div>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
+
 <body>
   <h2>Checkout</h2>
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+        <!-- <form action="/action_page.php">
       
         <div class="row">
           <div class="col-50">
@@ -91,44 +97,137 @@
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
         <input type="submit" value="Continue to checkout" class="btn">
-      </form>
+      </form> -->
+      </div>
     </div>
-  </div>
-  <div class="col-25">
+    <!-- <div class="col-25">
     <div class="container">
       <h4>Cart<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
       <p><a href="#">Vintage Telephone</a> <span class="price">799 kr.</span></p>
       <hr>
       <p>Total <span class="price" style="color:black"><b>799 kr.</b></span></p>
     </div>
+  </div> -->
+    <div class="cart-container">
+      <h2>Cart</h2>
+      <div id="cart-items">
+        <!-- Cart items will be injected here -->
+      </div>
+      <div class="cart-summary">
+        <p>Total: <span id="cart-total">0 kr.</span></p>
+      </div>
+      <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
   </div>
-</div>
 
-<button class="open-button" onclick="openForm()">Sign Up</button>
+  <button class="open-button" onclick="openForm()">Sign Up</button>
 
-<div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <h1>Sign Up</h1>
+  <div class="form-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>Sign Up</h1>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit" class="btn">Sign Up</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
+      <button type="submit" class="btn">Sign Up</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
 
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
+  <!-- <script>
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+
+</script> -->
+  <!-- <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+      let total = 0;
+
+      if (cart.length > 0) {
+        cart.forEach(item => {
+          total += item.price;
+          const cartItemElement = document.createElement('div');
+          cartItemElement.className = 'cart-item';
+          cartItemElement.innerHTML = `
+                  <img src="${item.image}" alt="${item.name}" width="100">
+                  <div>
+                      <p class="product-name">${item.name}</p>
+                      <p class="product-price">${item.price} kr.</p>
+                  </div>
+              `;
+          cartItemsContainer.appendChild(cartItemElement);
+        });
+      } else {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+      }
+
+      cartTotalElement.textContent = `${total} kr.`;
+    });
+
+    function checkout() {
+      alert('Proceeding to checkout...');
+      // Implement checkout logic here
+    }
+  </script> -->
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        let total = 0;
+
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" width="100">
+                    <div>
+                        <p class="product-name">${item.name}</p>
+                        <p class="product-price">${item.price} kr.</p>
+                        <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            cartTotalElement.textContent = `${total} kr.`;
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to localStorage
+        }
+
+        window.removeItem = function(index) {
+            cart.splice(index, 1);
+            updateCart();
+        };
+
+        if (cart.length > 0) {
+            updateCart();
+        } else {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        }
+    });
+
+    function checkout() {
+        alert('Proceeding to checkout...');
+        // Implement checkout logic here
+    }
+    </script>
 </body>
+
 </html>
