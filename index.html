@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Antique store by Benjamin</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="Signup.css">
+	<link rel="stylesheet" href="footer.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+ 	<div class="header">
+  <div class="container">
+	<div class="navbar">
+		<div class="logo">
+			<img src="images/b.jpg" width="120px">
+		</div>
+		<nav>
+			<ul>
+			  <li><a href="index.html">Home</a><li>
+			  <li><a href="products.html">Products</a></li>
+			  <li><a href="contact.html">Contact</a><li>
+			  <li><a href="login.html">Login</a><li>
+			  <li><a href="cart.html">Cart</a></li>
+		    </ul>
+	    </nav>
+
+	</div>
+	<div class="row"> 
+		<div class="col-2">
+			<h1>Welcome to <br> Antique By Benjamin</h1>
+			<a href="products.html" class="btn">Explore Now &#8594;</a>
+		</div>
+		<div class="col-2">
+		</div>
+	</div>
+   </div>
+</div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<button class="open-button" onclick="openForm()">Sign Up</button>
+
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Sign Up</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Sign Up</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+   <!-------- featured categories -------->
+   <section class="featured categories">
+   	  <div class="categories">
+   	  	<div class="small-container">
+   	  		<h2>Featured products</h2>
+   	  		<div class="row">
+   	  	   	    <div class="col-3">
+   	  	   	    	 <a href="featuredproduct.2.html" id="link"><img src="images/featuredproduct1.jpg"></a>
+   	  	   	    </div>
+   	  	   	    <div class="col-3">
+   	  	   	    		<a href="featuredproduct.html" id="link"><img src="images/featuredproduct3.jpg"></a>
+   	  	   	    </div>
+   	  	   	    <div class="col-3">
+   	  	   	    	<a href="featuredproduct.3.html" id="link"><img src="images/featuredproduct2.jpg"></a>
+   	  	   	    </div>
+   	  	   </div>
+   	  	</div>
+   	  </div>
+   	</section>
+
+
+    <!--footer starts from here-->
+<footer class="footer">
+<div class="container bottom_border">
+<div class="row">
+<div class=" col-sm-4 col-md col-sm-4  col-12 col">
+<h5 class="headin5_amrc col_white_amrc pt2">About Us</h5>
+<!--headin5_amrc-->
+<ul class="footer_ul_amrc">
+<p>We are a family business run by Benjamin Ronaldo. The company was founded in 2023.<br>We offer a wide variety of antique products. <br>We ensure high quality and are always on line to answer any doubts and questions.<br>Our vision is to sell products that are ethically and sustainable thoughout all aspects.
+</a></p>
+
+
+</div>
+
+
+<div class=" col-sm-4 col-md  col-6 col">
+<h5 class="headin5_amrc col_white_amrc pt2">Contact</h5>
+<!--headin5_amrc-->
+<p><i class="fa fa-location-arrow"></i>Lautrupvang 15, 2750 Ballerup</p>
+<p><i class="fa fa-phone"></i>s200532@dtu.dk</p>
+<p><i class="fa fa fa-envelope"></i>+45 31 51 08 30 </p>
+
+<!--footer_ul_amrc ends here-->
+</div>
+
+<div class=" col-sm-4 col-md  col-6 col">
+<h5 class="headin5_amrc col_white_amrc pt2">UN Goals</h5>
+<!--headin5_amrc-->
+<ul class="footer_ul_amrc">
+<li><a href="https://sdgs.un.org/goals/goal12">12 "Responsible Consumption and Production</a></li>
+<li><a href="https://sdgs.un.org/goals/goal13">13 "Climate Action"</a></li>
+<li><a href="https://sdgs.un.org/goals/goal15">15 "Life on land</a></li>
+
+<!--footer_ul_amrc ends here--> 
+</div>
+
+<div class="container">
+<ul class="foote_bottom_ul_amrc">
+<li><a href="index.html">Home</a></li> 
+<li><a href="products.html">Products</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="cart.html">Cart</a></li>
+</ul>
+<!--foote_bottom_ul_amrc ends here-->
+<p class="text-center">Copyright &copy;2023 | Designed by Antique By Benjamin<a>
+
+
+</footer>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

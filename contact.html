@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Antique Store By Benjamin</title>
+	<link rel="stylesheet" href="contact.css">
+	<link rel="stylesheet" href="Signup.css">
+
+ 	<div class="header">
+  <div class="container">
+	<div class="navbar">
+		</div>
+		<nav>
+			<ul>
+			  <li><a href="index.html">Home</a><li>
+			  <li><a href="products.html">Products</a></li>
+			  <li><a href="contact.html">Contact</a><li>
+			  <li><a href="login.html">Login</a><li>
+			  <li><a href="cart.html">Cart</a></li>
+		    </ul>
+	    </nav>
+	</div>
+	<div class="row"> 
+		<div class="col-2">
+		</div>
+		<div class="col-2">
+		</div>
+	</div>
+   </div>
+</div>
+
+</head>
+<body>
+<section class="contact">
+	   <div class="content">
+	   	    <h2>Contact</h2>
+	   	    <p>You are welcome to contact us if you have questions about our products.</p>
+	   </div>
+	   <div class="container">
+	   	   <div class="contactInfo">
+	   			 	     <div class="text">
+	   			 	   	     <h3>Adress</h3>
+	   			 	   	     <p>Lautrupvang 15,<br>2750 Ballerup</p>
+	   			 	     </div>
+	   			 	     </div>
+	   			 	     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   			 	      <div class="text">
+	   			 	   	      <h3>Phone</h3>
+	   			 	   	      <p>+45&nbsp;31&nbsp;51&nbsp;08&nbsp;30</p>
+	   			 	      </div>
+	   			 	      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   			 	   <div class="text">
+	   			 	   	    <h3>Email</h3>
+	   			 	   	    <p>s200532@dtu.dk</p>
+	   			 	   </div>
+	   			 </div>
+	  <div class="contactForm">
+	   		<form>
+	   			  <h2>Send Message</h2>
+	   			  <div class="inputBox">
+	   				  <input type="text" name="" required="required">
+	   				  <span>Full Name</span>
+	   			  </div>
+	   			  <div class="inputBox">
+	   				  <input type="text" name="" required="required">
+	   				  <span>Email</span>
+	   			  </div>
+	   			  <div class="inputBox">
+	   				  <textarea required="required"></textarea>
+	   				  <span>Type your message...</span>
+	   			  </div>
+	   			  <div class="inputBox">
+	   				  <input type="submit" name="" value="Send">
+	   			  </div>
+	   		  </form>
+	    </div>
+</section>
+
+<button class="open-button" onclick="openForm()">Sign Up</button>
+
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Sign Up</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Sign Up</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

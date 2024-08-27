@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+  <title>Antique Store By Benjamin</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="logout.psp">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+
+</head>
+<body>
+<%
+import mysql.connector
+from mysql.connector import Error
+
+select = "SELECT id FROM user WHERE uid = '{}' AND pw = '{}'"
+
+new = False
+if session.has_key("user") :
+  id = session["user"]
+else :
+  id = form.getfirst("ID")
+  pw = form.getfirst("PW")
+  if id :
+    id = str(id).lower()
+
+  accessDB = mysql.connector.connect(host='localhost',
+    database='eksport051',
+    user='eksport051',
+    password='62229+200532+F23')
+
+  cursor = accessDB.cursor()
+  result = cursor.execute(select.format(id,pw))
+  rec = cursor.fetchone()
+  OK = False
+  if rec :
+    OK = True
+  cursor.close()
+  accessDB.close()
+  if OK :
+    session["user"] = id
+  else :
+    new = True
+  # end else
+# end else
+%>
+  <div class="header">
+  <div class="container">
+  <div class="navbar">
+    <nav>
+      <ul>
+        <li><a href="index.psp">Home</a><li>
+        <li><a href="products.psp">Products</a></li>
+        <li><a href="contact.psp">Contact</a><li>
+        <li><a href="cart.psp">Cart</a></li>
+<%
+if new :
+%>
+        <li><a href="login.psp">Login</a><li>
+
+<%
+# end if :
+%>
+        </ul>
+      </nav>
+  </div>
+   </div>
+</div>
+<%
+if new :
+%>
+<div class="container">
+  <form action="login.psp" method="post">
+    <div class="row">
+      <h2 style="text-align:center">Login with Social Media or Manually</h2>
+      <div class="vl">
+        <span class="vl-innertext">or</span>
+      </div>
+      <div class="col">
+        <a href="#" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+         </a>
+        <a href="#" class="twitter btn">
+          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+        </a>
+        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+          </i> Login with Google+
+        </a>
+      </div>
+
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Or sign in manually:</p>
+        </div>
+
+        <input type="text" name="ID" placeholder="Username" required>
+        <input type="password" name="PW" placeholder="Password" required>
+        <input type="submit" value="Login" onclick="validate()"> 
+      </div>
+      
+    </div>
+  </form>
+</div>
+<%
+else :
+%>
+<li><a href="logout.psp">Logout</a></li>
+<%
+# end else :
+%>
+</body>
+</html>

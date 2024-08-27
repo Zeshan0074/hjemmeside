@@ -1,0 +1,192 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.header{
+	min-height: 800px;
+	background: url(images/baggrund.jpg) no-repeat;
+	background-size: 100%;
+}
+
+.navbar{
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	overflow: hidden;
+	padding-right: 21%;
+}
+.dropdown{
+	margin: 0 auto;
+	}
+nav{
+	flex: 1;
+	text-align: right;
+}
+nav ul{
+	display: inline-block;
+	list-style-type: none;
+}
+nav ul li{
+	display: inline-block;
+	margin-right: 25px;
+	font-weight: bold;
+}
+nav ul li a:hover{
+	color: #008B8B;
+	transition: all .5s;
+}
+nav ul ul{
+	position: absolute;
+	top: 60px;
+	display: none;
+}
+nav ul li:hover > ul{
+	display: block;
+}
+
+h1{
+	color: #001a1a;
+}
+h2{
+	text-align: center;
+	padding-bottom: 50px;
+	font-size: 30px;
+}
+h3{
+	padding-bottom: 20px;
+	font-size: 20px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+p{
+	color: #555;
+}
+.container{
+	max-width: 1300px;
+	margin: auto;
+	padding-left: 25px;
+	padding-right: 25px ;
+}
+.row{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.col-2{
+	flex-basis: 50%;
+	min-width: 300px;
+}
+.col-2 h1{
+	font-size: 50px;
+	line-height: 60px;
+	margin: 25px 0;
+}
+.btn{
+	display: inline-block;
+	background: #008B8B;
+	color: #black;
+	font-weight: bold;
+	padding: 8px 30px;
+	margin: 30px 0;
+	border-radius: 30px;
+	transition: background 0.5s;
+}
+.btn:hover{
+	background: #B0E0E6;
+}
+.categories{
+	margin: 70px;
+}
+.col-3{
+	flex-basis: 30%;
+	min-width: 250px;
+	margin-bottom: 30px;
+	transition: transform 0.5s;
+}
+.col-3 img{
+	width: 100%;
+}
+.col-3:hover{
+	transform: translateY(-5px);
+}
+.small-container{
+	max-width: 1080px;
+	margin: auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.col-4{
+	flex-basis: 25%;
+	padding: 10px;
+	min-width: 200px;
+	margin-bottom: 50px;
+}
+.col-4 img{
+	width: 100%;
+}
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc+
+  ;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+
+/* Credit to https://epicbootstrap.com/snippets/footer-with-columns */
+
+#blue
+
+
+
+
+
+
+
+
+
+
+
+
+
