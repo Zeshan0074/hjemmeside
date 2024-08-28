@@ -21,7 +21,7 @@
                     <li><a href="products.html">Products</a></li>
                     <li><a href="contact.html">Contact</a>
                     <li>
-                    <li><a href="login.psp">Login</a>
+                        <li id="auth-link"><a href="login.html">Login</a></li>
                     <li>
                     <li><a href="cart.html">Cart</a></li>
                 </ul>
@@ -47,6 +47,18 @@
 
             <div class="product-items">
                 <script>
+                      const authLink = document.getElementById('auth-link');
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+            if (isLoggedIn) {
+                authLink.innerHTML = '<a href="#" id="logout-link">Logout</a>';
+                document.getElementById('logout-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    localStorage.removeItem('isLoggedIn');
+                    window.location.href = "index.html"; // Redirect to homepage or login page
+                });
+            }
+
                     const products = [
                         { imgSrc: "images/telefon.jpg", name: "Vintage telephone", price: "799 kr.", description: "Antique" },
                         { imgSrc: "images/lilletv.jpg", name: "Old mini TV", price: "1999 kr.", description: "Antique" },
