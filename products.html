@@ -16,8 +16,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a>
-                    <li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="contact.html">Contact</a>
                     <li>
@@ -34,10 +33,7 @@
             </div>
         </div>
     </div>
-    </div>
-
 </head>
-
 
 <body>
     <div class="products">
@@ -109,13 +105,20 @@
                     function addToCart(productName, productPrice, productImage) {
                         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-                        // Add the product to the cart array
-                        cart.push({ name: productName, price: productPrice, image: productImage });
+                        // Check if the product is already in the cart
+                        let productExists = cart.some(item => item.name === productName);
 
-                        // Save the updated cart to localStorage
-                        localStorage.setItem('cart', JSON.stringify(cart));
+                        if (!productExists) {
+                            // Add the product to the cart array
+                            cart.push({ name: productName, price: productPrice, image: productImage });
 
-                        alert(`${productName} has been added to your cart.`);
+                            // Save the updated cart to localStorage
+                            localStorage.setItem('cart', JSON.stringify(cart));
+
+                            alert(`${productName} has been added to your cart.`);
+                        } else {
+                            alert(`${productName} is already in your cart.`);
+                        }
                     }
                 </script>
             </div>
