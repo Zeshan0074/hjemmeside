@@ -79,31 +79,68 @@
 <button class="open-button" onclick="openForm()">Sign Up</button>
 
 <div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <h1>Sign Up</h1>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit" class="btn">Sign Up</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
+	<form id="signupForm" class="form-container">
+		<h1>Sign Up</h1>
+	
+		<label for="email"><b>Email</b></label>
+		<input type="text" id="email" placeholder="Enter Email" name="email" required>
+	
+		<label for="password"><b>Password</b></label>
+		<input type="password" id="password" placeholder="Enter Password" name="password" required>
+		<div id="responseMessage" class="message"></div> <!-- Added div for messages -->
+	
+		<button type="submit" class="btn">Sign Up</button>
+		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+	</form>
+	<!-- <p id="responseMessage"></p> -->
 </div>
 
+<!-- JavaScript code -->
 <script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
+	document.getElementById('signupForm').addEventListener('submit', function(event) {
+		event.preventDefault(); // Prevent the form from submitting the default way
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
+		const email = document.getElementById('email').value;
+		const password = document.getElementById('password').value;
+
+		fetch('http://localhost:5000/signup', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: new URLSearchParams({
+				'email': email,
+				'password': password
+			})
+		})
+		.then(response => response.json())
+		.then(data => {
+			const responseMessage = document.getElementById('responseMessage');
+			const passwordMessage = document.getElementById('passwordMessage');
+			
+			if (data.status === 'success') {
+				responseMessage.textContent = 'Submission successful!';
+				responseMessage.style.color = 'green';
+				passwordMessage.textContent = ''; // Clear the message if successful
+			} else {
+				responseMessage.textContent =  data.message;
+				responseMessage.style.color = 'red';
+			
+			}
+		})
+		.catch(error => {
+			console.error('Error:', error);
+		});
+	});
+
+	function openForm() {
+		document.getElementById("myForm").style.display = "block";
+	}
+
+	function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+	}
 </script>
-
-
 </body>
 </html>
 

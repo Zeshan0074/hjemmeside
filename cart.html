@@ -3,16 +3,16 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta charset="UTF-8">
   <title>Antique Store By Benjamin</title>
   <link rel="stylesheet" href="cart.css">
   <link rel="stylesheet" href="Signup.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+</head>
 
+<body>
   <div class="header">
     <div class="container">
       <div class="navbar">
@@ -21,48 +21,38 @@
         </div>
         <nav>
           <ul>
-            <li><a href="index.html">Home</a>
-            <li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a>
-            <li>
-            <li><a href="login.html">Login</a>
-            <li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
             <li><a href="cart.html">Cart</a></li>
           </ul>
         </nav>
       </div>
     </div>
   </div>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
-
-<body>
   <h2>Checkout</h2>
   <div class="cart-page">
     <div class="payment-checkout">
       <div class="container">
         <form action="/action_page.php">
-
           <div class="row" id="payment-row">
             <div class="col-50">
               <h3>Billing Address</h3>
-              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="Kristian Larsen">
-              <label for="email"><i class="fa fa-envelope"></i> Email</label>
-              <input type="text" id="email" name="email" placeholder="kristian@example.com">
+              <label for="billing-fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="billing-fname" name="firstname" placeholder="Kristian Larsen">
+              <label for="billing-email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="billing-email" name="email" placeholder="kristian@example.com">
               <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
               <input type="text" id="adr" name="address" placeholder="Vesterbrogade 28">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="Copenhagen">
-
               <div class="row">
                 <div class="col-50">
                   <label for="state">Zip code</label>
                   <input type="text" id="state" name="state" placeholder="1786">
                 </div>
-
               </div>
             </div>
 
@@ -91,24 +81,16 @@
                 </div>
               </div>
             </div>
-
           </div>
           <label>
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
           <input type="submit" value="Continue to checkout" class="btn">
         </form>
-
       </div>
-
     </div>
+
     <div class="cart-section">
-      <!-- <div class="container">
-        <h4>Cart<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
-        <p><a href="#">Vintage Telephone</a> <span class="price">799 kr.</span></p>
-        <hr>
-        <p>Total <span class="price" style="color:black"><b>799 kr.</b></span></p>
-      </div> -->
       <div class="cart-container">
         <h2>Cart</h2>
         <div id="cart-items">
@@ -119,35 +101,27 @@
         </div>
         <button onclick="checkout()">Proceed to Checkout</button>
 
-
         <button class="open-button1" onclick="openForm()">Sign Up</button>
 
-      <div class="form-popup1" id="myForm">
-        <form action="/action_page.php" class="form-container">
-          <h1>Sign Up</h1>
-
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <button type="submit" class="btn">Sign Up</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
+        <div class="form-popup" id="myForm">
+          <form id="signupForm" class="form-container">
+              <h1>Sign Up</h1>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" id="email" placeholder="Enter Email" name="email" required>
+          
+              <label for="password"><b>Password</b></label>
+              <input type="password" id="password" placeholder="Enter Password" name="password" required>
+              <div id="responseMessage" class="message"></div> <!-- Added div for messages -->
+          
+              <button type="submit" class="btn">Sign Up</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+          <!-- <p id="responseMessage"></p> -->
       </div>
       </div>
-
-      
     </div>
-
-
-
   </div>
-
-
-
-
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -160,13 +134,11 @@
         cartItemsContainer.innerHTML = '';
         total = 0;
         cart.forEach((item, index) => {
-          // Convert price to a number if it's not already
           let price = parseFloat(item.price);
 
-          // Check if the conversion was successful
           if (isNaN(price)) {
             console.error(`Invalid price for item ${item.name}: ${item.price}`);
-            price = 0; // Set to 0 or handle the error as you prefer
+            price = 0;
           }
 
           total += price;
@@ -174,23 +146,19 @@
           const cartItemElement = document.createElement('div');
           cartItemElement.className = 'cart-item';
           cartItemElement.innerHTML = `
-      <img src="${item.image}" alt="${item.name}" width="100">
-      <div>
-        <p class="product-name">${item.name}</p>
-        <p class="product-price">${price.toFixed(2)} kr.</p>
-        <button class="remove-item" onclick="removeItem(${index})">Remove</button>
-      </div>
-    `;
+            <img src="${item.image}" alt="${item.name}" width="100">
+            <div>
+              <p class="product-name">${item.name}</p>
+              <p class="product-price">${price.toFixed(2)} kr.</p>
+              <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+            </div>
+          `;
           cartItemsContainer.appendChild(cartItemElement);
         });
 
-        // Display the total price with 2 decimal places
         cartTotalElement.textContent = `${total.toFixed(2)} kr.`;
-
-        // Save the updated cart back to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
       }
-
 
       window.removeItem = function (index) {
         cart.splice(index, 1);
@@ -207,13 +175,51 @@
     function checkout() {
       alert('Proceeding to checkout...');
     }
-    function openForm() {
-      document.getElementById("myForm").style.display = "block";
-    }
 
-    function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-    }
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the default way
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('http://localhost:5000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'email': email,
+                    'password': password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const responseMessage = document.getElementById('responseMessage');
+                const passwordMessage = document.getElementById('passwordMessage');
+                
+                if (data.status === 'success') {
+                    responseMessage.textContent = 'Submission successful!';
+                    responseMessage.style.color = 'green';
+                    passwordMessage.textContent = ''; // Clear the message if successful
+                } else {
+                    responseMessage.textContent =  data.message;
+                    responseMessage.style.color = 'red';
+                   
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            
+            });
+        });
+
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
   </script>
 </body>
 
