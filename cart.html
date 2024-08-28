@@ -40,108 +40,173 @@
 
 <body>
   <h2>Checkout</h2>
-  <div class="row">
-    <div class="col-75">
+  <div class="cart-page">
+    <div class="payment-checkout">
       <div class="container">
-        <!-- <form action="/action_page.php">
-      
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Kristian Larsen">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="kristian@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="Vesterbrogade 28">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="Copenhagen">
+        <form action="/action_page.php">
 
-            <div class="row">
-              <div class="col-50">
-                <label for="state">Zip code</label>
-                <input type="text" id="state" name="state" placeholder="1786">
-              </div>
-            
-            </div>
-          </div>
+          <div class="row" id="payment-row">
+            <div class="col-50">
+              <h3>Billing Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Kristian Larsen">
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="kristian@example.com">
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adr" name="address" placeholder="Vesterbrogade 28">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="Copenhagen">
 
-          <div class="col-50">
-            <h3>Payment</h3>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="Kristian Larsen">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2023">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+              <div class="row">
+                <div class="col-50">
+                  <label for="state">Zip code</label>
+                  <input type="text" id="state" name="state" placeholder="1786">
+                </div>
+
               </div>
             </div>
+
+            <div class="col-50">
+              <h3>Payment</h3>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+              </div>
+              <label for="cname">Name on Card</label>
+              <input type="text" id="cname" name="cardname" placeholder="Kristian Larsen">
+              <label for="ccnum">Credit card number</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              <label for="expmonth">Exp Month</label>
+              <input type="text" id="expmonth" name="expmonth" placeholder="September">
+              <div class="row">
+                <div class="col-50">
+                  <label for="expyear">Exp Year</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="2023">
+                </div>
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="352">
+                </div>
+              </div>
+            </div>
+
           </div>
-          
+          <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          </label>
+          <input type="submit" value="Continue to checkout" class="btn">
+        </form>
+
+      </div>
+
+    </div>
+    <div class="cart-section">
+      <!-- <div class="container">
+        <h4>Cart<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
+        <p><a href="#">Vintage Telephone</a> <span class="price">799 kr.</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>799 kr.</b></span></p>
+      </div> -->
+      <div class="cart-container">
+        <h2>Cart</h2>
+        <div id="cart-items">
+          <!-- Cart items will be injected here -->
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form> -->
+        <div class="cart-summary">
+          <p>Total: <span id="cart-total">0 kr.</span></p>
+        </div>
+        <button onclick="checkout()">Proceed to Checkout</button>
+
+
+        <button class="open-button1" onclick="openForm()">Sign Up</button>
+
+      <div class="form-popup1" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Sign Up</h1>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button type="submit" class="btn">Sign Up</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
       </div>
-    </div>
-    <!-- <div class="col-25">
-    <div class="container">
-      <h4>Cart<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
-      <p><a href="#">Vintage Telephone</a> <span class="price">799 kr.</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>799 kr.</b></span></p>
-    </div>
-  </div> -->
-    <div class="cart-container">
-      <h2>Cart</h2>
-      <div id="cart-items">
-        <!-- Cart items will be injected here -->
       </div>
-      <div class="cart-summary">
-        <p>Total: <span id="cart-total">0 kr.</span></p>
-      </div>
-      <button onclick="checkout()">Proceed to Checkout</button>
+
+      
     </div>
+
+
+
   </div>
 
-  <button class="open-button" onclick="openForm()">Sign Up</button>
-
-  <div class="form-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
-      <h1>Sign Up</h1>
-
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit" class="btn">Sign Up</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-  </div>
-
-  <!-- <script>
 
 
-</script> -->
-  <!-- <script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+      let total = 0;
+
+      function updateCart() {
+        cartItemsContainer.innerHTML = '';
+        total = 0;
+        cart.forEach((item, index) => {
+          // Convert price to a number if it's not already
+          let price = parseFloat(item.price);
+
+          // Check if the conversion was successful
+          if (isNaN(price)) {
+            console.error(`Invalid price for item ${item.name}: ${item.price}`);
+            price = 0; // Set to 0 or handle the error as you prefer
+          }
+
+          total += price;
+
+          const cartItemElement = document.createElement('div');
+          cartItemElement.className = 'cart-item';
+          cartItemElement.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" width="100">
+      <div>
+        <p class="product-name">${item.name}</p>
+        <p class="product-price">${price.toFixed(2)} kr.</p>
+        <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+          cartItemsContainer.appendChild(cartItemElement);
+        });
+
+        // Display the total price with 2 decimal places
+        cartTotalElement.textContent = `${total.toFixed(2)} kr.`;
+
+        // Save the updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+
+      window.removeItem = function (index) {
+        cart.splice(index, 1);
+        updateCart();
+      };
+
+      if (cart.length > 0) {
+        updateCart();
+      } else {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+      }
+    });
+
+    function checkout() {
+      alert('Proceeding to checkout...');
+    }
     function openForm() {
       document.getElementById("myForm").style.display = "block";
     }
@@ -149,85 +214,7 @@
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
-    document.addEventListener('DOMContentLoaded', function () {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotalElement = document.getElementById('cart-total');
-      let total = 0;
-
-      if (cart.length > 0) {
-        cart.forEach(item => {
-          total += item.price;
-          const cartItemElement = document.createElement('div');
-          cartItemElement.className = 'cart-item';
-          cartItemElement.innerHTML = `
-                  <img src="${item.image}" alt="${item.name}" width="100">
-                  <div>
-                      <p class="product-name">${item.name}</p>
-                      <p class="product-price">${item.price} kr.</p>
-                  </div>
-              `;
-          cartItemsContainer.appendChild(cartItemElement);
-        });
-      } else {
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-      }
-
-      cartTotalElement.textContent = `${total} kr.`;
-    });
-
-    function checkout() {
-      alert('Proceeding to checkout...');
-      // Implement checkout logic here
-    }
-  </script> -->
-
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartTotalElement = document.getElementById('cart-total');
-        let total = 0;
-
-        function updateCart() {
-            cartItemsContainer.innerHTML = '';
-            total = 0;
-            cart.forEach((item, index) => {
-                total += item.price;
-                const cartItemElement = document.createElement('div');
-                cartItemElement.className = 'cart-item';
-                cartItemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" width="100">
-                    <div>
-                        <p class="product-name">${item.name}</p>
-                        <p class="product-price">${item.price} kr.</p>
-                        <button class="remove-item" onclick="removeItem(${index})">Remove</button>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(cartItemElement);
-            });
-            cartTotalElement.textContent = `${total} kr.`;
-            localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to localStorage
-        }
-
-        window.removeItem = function(index) {
-            cart.splice(index, 1);
-            updateCart();
-        };
-
-        if (cart.length > 0) {
-            updateCart();
-        } else {
-            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-        }
-    });
-
-    function checkout() {
-        alert('Proceeding to checkout...');
-        // Implement checkout logic here
-    }
-    </script>
+  </script>
 </body>
 
 </html>
