@@ -1,791 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Antique Store By Benjamin</title>
-  <link rel="stylesheet" href="contact.css">
-  <link rel="stylesheet" href="products.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
-  <div class="header">
-  <div class="container">
-  <div class="navbar">
+<head>
+    <meta charset="UTF-8">
+    <title>Antique Store By Benjamin</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="products.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+        rel="stylesheet">
+
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a>
+                    <li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a>
+                    <li>
+                    <li><a href="login.psp">Login</a>
+                    <li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a><li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a><li>
-        <li><a href="login.psp">Login</a><li>
-        <li><a href="cart.html">Cart</a></li>
-        </ul>
-      </nav>
-  </div>
-  <div class="row"> 
-    <div class="col-2">
     </div>
-    <div class="col-2">
-    </div>
-  </div>
-   </div>
-</div>
 
 </head>
 
+
 <body>
+    <div class="products">
+        <div class="container">
+            <h1 class="lg-title">Antique Products</h1>
+            <p class="text-light">Welcome to our products <br> - special and unique</p>
 
-</script>
+            <div class="product-items">
+                <script>
+                    const products = [
+                        { imgSrc: "images/telefon.jpg", name: "Vintage telephone", price: "799 kr.", description: "Antique" },
+                        { imgSrc: "images/lilletv.jpg", name: "Old mini TV", price: "1999 kr.", description: "Antique" },
+                        { imgSrc: "images/OldSchoolTypewriter.jpg", name: "Old School Typewriter", price: "500 kr.", description: "Antique" },
+                        { imgSrc: "images/sofa1.jpg", name: "Leather sofa", price: "3000 kr.", description: "Antique" },
+                        { imgSrc: "images/sofa2.jpg", name: "Brown premium leather sofa", price: "6000 kr.", description: "Antique" },
+                        { imgSrc: "images/velour.jpg", name: "Green Velour Sofa", price: "2500 kr.", description: "Antique" },
+                        { imgSrc: "images/stol.jpg", name: "Wood Chair", price: "1500 kr.", description: "Antique" },
+                        { imgSrc: "images/darkstol.jpg", name: "Dark Wood Chair", price: "899 kr.", description: "Antique" },
+                        { imgSrc: "images/blå.jpg", name: "Blue Velour Sofastand", price: "1000 kr.", description: "Antique" },
+                        { imgSrc: "images/skrivemaskine.jpg", name: "Typewriter", price: "699 kr.", description: "Antique" },
+                        { imgSrc: "images/skrive.jpg", name: "Typewriter Black", price: "250 kr.", description: "Antique" },
+                        { imgSrc: "images/oldradio.jpg", name: "Old Radio", price: "900 kr.", description: "Antique" },
+                        { imgSrc: "images/box.jpg", name: "Wood Box with Pensels", price: "1600 kr.", description: "Antique" },
+                        { imgSrc: "images/box2.jpg", name: "Small lovebox", price: "100 kr.", description: "Antique" },
+                        { imgSrc: "images/gynge2.jpg", name: "Wood Swing", price: "355 kr.", description: "Antique" },
+                        { imgSrc: "images/instrument.jpg", name: "Instrument", price: "2999 kr.", description: "Antique" },
+                        { imgSrc: "images/nikon.jpg", name: "Old Nikon Camera", price: "5895 kr.", description: "Antique" },
+                        { imgSrc: "images/kamera2.jpg", name: "Old Premier Camera", price: "699 kr.", description: "Antique" },
+                        { imgSrc: "images/clock.jpg", name: "Old Clock", price: "500 kr.", description: "Antique" },
+                        { imgSrc: "images/potte.jpg", name: "Old Pottery", price: "900 kr.", description: "Antique" },
+                        { imgSrc: "images/record.jpg", name: "Retro Record Player", price: "300 kr.", description: "Antique" }
+                    ];
 
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title">Antique Products</h1>
-                <p class = "text-light">Welcome to our products <br> - special and unique</p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/telefon.jpg" alt = "product image">
+                    products.map(product => {
+                        document.write(`
+                            <div class="product">
+                                <div class="product-content">
+                                    <div class="product-img">
+                                        <img src="${product.imgSrc}" alt="product image">
+                                    </div>
+                                    <div class="product-btns">
+                                        <button type="button" class="btn-cart" onclick="addToCart('${product.name}', '${product.price}', '${product.imgSrc}')">Add to cart</button>
+                                        <button type="button" class="btn-buy">Buy now</button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-info-top">
+                                        <h2 class="sm-title">${product.description}</h2>
+                                    </div>
+                                    <a href="#" class="product-name">${product.name}</a>
+                                    <p class="product-price">${product.price}</p>
+                                </div>
                             </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <a href="cart.html"><button type = "button" class = "btn-buy"> Buy now</button></a>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Vintage telephone</a>
-                            <p class = "product-price">799 kr.</p>
-                        </div>
+                        `);
+                    });
 
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/lilletv.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
+                    function addToCart(productName, productPrice, productImage) {
+                        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Old mini TV</a>
-                            <p class = "product-price">1999 kr.</p>
-                        </div>
+                        // Add the product to the cart array
+                        cart.push({ name: productName, price: productPrice, image: productImage });
 
-                        <div class = "off-info">
-                        </div>
-                    </div>
+                        // Save the updated cart to localStorage
+                        localStorage.setItem('cart', JSON.stringify(cart));
 
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/OldSchoolTypewriter.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Old School Typewriter</a>
-                            <p class = "product-price">500 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
+                        alert(`${productName} has been added to your cart.`);
+                    }
+                </script>
             </div>
         </div>
-
-
-
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title"></h1>
-                <p class = "text-light"></p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/sofa1.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Leather sofa</a>
-                            <p class = "product-price">3000 kr.</p>
-                        </div>
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/sofa2.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Brown premium leather sofa</a>
-                            <p class = "product-price">6000 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/velour.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Green Velour Sofa</a>
-                            <p class = "product-price">2500 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title"></h1>
-                <p class = "text-light"></p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/stol.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Wood Chair</a>
-                            <p class = "product-price">1500 kr.</p>
-                        </div>
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/darkstol.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Dark Wood Chair</a>
-                            <p class = "product-price">899 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/blå.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Blue Velour Sofastand</a>
-                            <p class = "product-price">1000 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title"></h1>
-                <p class = "text-light"></p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/skrivemaskine.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Typewriter</a>
-                            <p class = "product-price">699 kr.</p>
-                        </div>
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/skrive.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Typewriter Black</a>
-                            <p class = "product-price">250 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/oldradio.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Old Radio</a>
-                            <p class = "product-price">900 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title"></h1>
-                <p class = "text-light"></p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/box.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Wood Box with Pensels</a>
-                            <p class = "product-price">1600 kr.</p>
-                        </div>
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/box2.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Small lovebox</a>
-                            <p class = "product-price">100 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/gynge2.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Wood Swing</a>
-                            <p class = "product-price">355 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title"></h1>
-                <p class = "text-light"></p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/instrument.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Instrument</a>
-                            <p class = "product-price">2999 kr.</p>
-                        </div>
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/nikon.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Old Nikon Camera</a>
-                            <p class = "product-price">5895 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/kamera2.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Old Premier Camera</a>
-                            <p class = "product-price">699 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-<div class = "products">
-            <div class = "container">
-                <h1 class = "lg-title"></h1>
-                <p class = "text-light"></p>
-
-                <div class = "product-items">
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/clock.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                                
-                            </div>
-                           <a href = "#" class = "product-name">Old Clock</a>
-                            <p class = "product-price">500 kr.</p>
-                        </div>
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/potte.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Old Pottery</a>
-                            <p class = "product-price">900 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-<div class = "off-info">
-                        </div>
-                    </div>
-                    <!-- end of single product -->
-                    <!-- single product -->
-                    <div class = "product">
-                        <div class = "product-content">
-                            <div class = "product-img">
-                                <img src = "images/record.jpg" alt = "product image">
-                            </div>
-                            <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> Add to cart
-                                </button>
-                                <button type = "button" class = "btn-buy"> Buy now
-                                </button>
-                            </div>
-                        </div>
-
-<div class = "product-info">
-                            <div class = "product-info-top">
-                                <h2 class = "sm-title">Antique</h2>
-                            </div>
-                            <a href = "#" class = "product-name">Retro Record Player</a>
-                            <p class = "product-price">300 kr.</p>
-                        </div>
-
-                        <div class = "off-info">
-                        </div>
-                    </div>
-
-                    <!-- end of single product -->
-
-
-
-                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+    </div>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
